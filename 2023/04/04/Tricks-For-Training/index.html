@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Tricks For Training | 诗芮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="训练技巧与模块小结SR方法仓库 [repo] 即插即用的Attention模块小结 [repo] 14种卷积及变体 [repo] Awesome超分方法 [repo] 即插即用的CNN小插件 [[article](即插即用！盘点11种CNN网络设计中精巧通用的“小”插件 (qq.com))] 模块1-LFB模块 [paper] [code]    特点：LFB包括：多个堆叠的AWRU和1个LRFU">
+  <meta name="description" content="训练与模块技巧小结 简单总结了参加2022年Ntire Efficient Super Resolution挑战赛时积累的一些训练技巧和有用的小模块。 干货较多😀">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tricks For Training">
 <meta property="og:url" content="http://example.com/2023/04/04/Tricks-For-Training/index.html">
 <meta property="og:site_name" content="诗芮的博客">
-<meta property="og:description" content="训练技巧与模块小结SR方法仓库 [repo] 即插即用的Attention模块小结 [repo] 14种卷积及变体 [repo] Awesome超分方法 [repo] 即插即用的CNN小插件 [[article](即插即用！盘点11种CNN网络设计中精巧通用的“小”插件 (qq.com))] 模块1-LFB模块 [paper] [code]    特点：LFB包括：多个堆叠的AWRU和1个LRFU">
+<meta property="og:description" content="训练与模块技巧小结 简单总结了参加2022年Ntire Efficient Super Resolution挑战赛时积累的一些训练技巧和有用的小模块。 干货较多😀">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220406162957480.png">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-62194b68d564b84f09e4b1c6ad51cbe2_1440w.jpg">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220407164416126.png">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/SdQCib1UzF3vJ6WsagT9GktbcK15eAdhlg6qjsZf2ibpXdB4A2FhRJ5NJoNniapcntMawH8CIzMlcqgZ0HnlZZ9eQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="article:published_time" content="2023-04-04T12:56:29.000Z">
-<meta property="article:modified_time" content="2023-04-04T12:59:36.939Z">
+<meta property="article:modified_time" content="2023-04-04T14:01:06.110Z">
 <meta property="article:author" content="VV">
 <meta property="article:tag" content="Deep learning, Image Super-Resolution, Pytorch">
 <meta name="twitter:card" content="summary">
@@ -111,8 +111,8 @@
 			</div>
 			<!-- 网易云音乐插件 -->
             
-	            <div style="position:absolute; bottom:120px; left:auto; width:85%">
-		            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1478636&auto=0&height=66"></iframe>
+	            <div style="position:absolute; bottom:120px left:auto; width:85%">
+		            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=1478636&auto=0&height=66"></iframe>
 	            </div>
             
 		</nav>
@@ -207,7 +207,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="训练技巧与模块小结"><a href="#训练技巧与模块小结" class="headerlink" title="训练技巧与模块小结"></a>训练技巧与模块小结</h1><p>SR方法仓库 [<a target="_blank" rel="noopener" href="https://github.com/YapengTian/Single-Image-Super-Resolution">repo</a>]</p>
+        <p><strong>训练与模块技巧小结</strong></p>
+<p>简单总结了参加2022年Ntire Efficient Super Resolution挑战赛时积累的一些训练技巧和有用的小模块。</p>
+<p>干货较多😀</p>
+<span id="more"></span>
+
+<h1 id="训练技巧与模块小结"><a href="#训练技巧与模块小结" class="headerlink" title="训练技巧与模块小结"></a>训练技巧与模块小结</h1><p>SR方法仓库 [<a target="_blank" rel="noopener" href="https://github.com/YapengTian/Single-Image-Super-Resolution">repo</a>]</p>
 <p>即插即用的Attention模块小结 [<a target="_blank" rel="noopener" href="https://github.com/xmu-xiaoma666/External-Attention-pytorch">repo</a>]</p>
 <p>14种卷积及变体 [<a target="_blank" rel="noopener" href="https://github.com/CVHuber/Convolution">repo</a>]</p>
 <p>Awesome超分方法 [<a target="_blank" rel="noopener" href="https://github.com/ChaofWang/Awesome-Super-Resolution">repo</a>]</p>
@@ -413,16 +418,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2022/01/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
