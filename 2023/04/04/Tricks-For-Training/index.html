@@ -6,18 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>诗芮的博客</title>
+  <title>Tricks For Training | 诗芮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="诗芮的博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="训练技巧与模块小结SR方法仓库 [repo] 即插即用的Attention模块小结 [repo] 14种卷积及变体 [repo] Awesome超分方法 [repo] 即插即用的CNN小插件 [[article](即插即用！盘点11种CNN网络设计中精巧通用的“小”插件 (qq.com))] 模块1-LFB模块 [paper] [code]    特点：LFB包括：多个堆叠的AWRU和1个LRFU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tricks For Training">
+<meta property="og:url" content="http://example.com/2023/04/04/Tricks-For-Training/index.html">
 <meta property="og:site_name" content="诗芮的博客">
-<meta property="og:description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
+<meta property="og:description" content="训练技巧与模块小结SR方法仓库 [repo] 即插即用的Attention模块小结 [repo] 14种卷积及变体 [repo] Awesome超分方法 [repo] 即插即用的CNN小插件 [[article](即插即用！盘点11种CNN网络设计中精巧通用的“小”插件 (qq.com))] 模块1-LFB模块 [paper] [code]    特点：LFB包括：多个堆叠的AWRU和1个LRFU">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220406162957480.png">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-62194b68d564b84f09e4b1c6ad51cbe2_1440w.jpg">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220406170749541.png">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220407102448017.png">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220407110046899.png">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220407170017696.png">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220407112839923.png">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220407115235359.png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/VvkhdVVVIDhCvnwJm2D5kXraaACwMyiaJxzqO1777lwyKc8L8ES8Sgtq38c3GRSwlV4SVAEnCIdV4RxwuzXA0dg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-80f0227033e5458a1dc38f5f4f47c44d_1440w.jpg">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cboldsymbol%7B%5Cphi%7D">
+<meta property="og:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220407164416126.png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/SdQCib1UzF3vJ6WsagT9GktbcK15eAdhlg6qjsZf2ibpXdB4A2FhRJ5NJoNniapcntMawH8CIzMlcqgZ0HnlZZ9eQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="article:published_time" content="2023-04-04T12:56:29.000Z">
+<meta property="article:modified_time" content="2023-04-04T12:59:36.939Z">
 <meta property="article:author" content="VV">
-<meta property="article:tag" content="深度学习,编程,算法">
+<meta property="article:tag" content="Deep learning, Image Super-Resolution, Pytorch">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/ywtia/AppData/Roaming/Typora/typora-user-images/image-20220406162957480.png">
   
     <link rel="alternative" href="/atom.xml" title="诗芮的博客" type="application/atom+xml">
   
@@ -165,91 +181,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Tricks-For-Training" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/02/hello-world/" class="archive-article-date">
-  	<time datetime="2022-01-02T04:04:34.804Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/02/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Tricks-For-Training" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/04/Tricks-For-Training/">Tricks For Training</a>
+    <h1 class="article-title" itemprop="name">
+      Tricks For Training
     </h1>
   
 
@@ -409,16 +348,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/04/Tricks-For-Training/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/04/Tricks-For-Training/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/01/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -433,13 +431,32 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%A8%A1%E5%9D%97%E5%B0%8F%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">训练技巧与模块小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97"><span class="toc-number">1.0.1.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-LFB%E6%A8%A1%E5%9D%97"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">1-LFB模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-ghost-module"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">2-ghost module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Non-local-Sparse-Attention"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">3-Non-local Sparse Attention</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Layer-Attention-Module"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">4-Layer Attention Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-LatticeNet"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">5-LatticeNet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-MFFG-module"><span class="toc-number">1.0.1.6.</span> <span class="toc-text">6-MFFG module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-DualConv"><span class="toc-number">1.0.1.7.</span> <span class="toc-text">7-DualConv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-multi-context-attentive-block"><span class="toc-number">1.0.1.8.</span> <span class="toc-text">8-multi-context attentive block</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-SPConv"><span class="toc-number">1.0.1.9.</span> <span class="toc-text">9-SPConv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-involution"><span class="toc-number">1.0.1.10.</span> <span class="toc-text">10-involution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-Edge-oriented-covolution-block"><span class="toc-number">1.0.1.11.</span> <span class="toc-text">11-Edge-oriented covolution block</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-Knowlege-Distillation"><span class="toc-number">1.0.1.12.</span> <span class="toc-text">12-Knowlege Distillation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.0.1.13.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%8F%82"><span class="toc-number">1.0.2.</span> <span class="toc-text">调参</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%BC%E4%B8%B9%E6%8A%80%E5%B7%A7"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">炼丹技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">模型复杂度统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">模型可视化</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -462,8 +479,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
