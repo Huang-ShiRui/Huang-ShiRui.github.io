@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2023/4 | 诗芮的博客</title>
+  <title>OpenCV图像处理入门-背景知识 | 诗芮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="诗芮的博客">
-<meta property="og:url" content="http://example.com/archives/2023/04/index.html">
+  <meta name="description" content="传统图像处理技术 借助OpenCV这个图像处理库开始复习图像处理的基本知识，就先从背景开始吧，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV图像处理入门-背景知识">
+<meta property="og:url" content="http://example.com/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="诗芮的博客">
-<meta property="og:description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
+<meta property="og:description" content="传统图像处理技术 借助OpenCV这个图像处理库开始复习图像处理的基本知识，就先从背景开始吧，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-06T12:12:14.000Z">
+<meta property="article:modified_time" content="2023-04-06T12:15:21.087Z">
 <meta property="article:author" content="VV">
-<meta property="article:tag" content="深度学习,编程,算法">
+<meta property="article:tag" content="OpenCV, C++, Image Process">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="诗芮的博客" type="application/atom+xml">
@@ -171,36 +173,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-OpenCV图像处理入门-背景知识" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2023-04-06T12:12:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/">OpenCV图像处理入门-背景知识</a>
+    <h1 class="article-title" itemprop="name">
+      OpenCV图像处理入门-背景知识
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2023-04-06T12:12:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>传统图像处理技术</strong></p>
+<p>借助OpenCV这个图像处理库开始复习图像处理的基本知识，就先从背景开始吧，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。</p>
+<span id="more"></span>
+
+<h1 id="OpenCV学习-背景入门"><a href="#OpenCV学习-背景入门" class="headerlink" title="OpenCV学习__背景入门"></a>OpenCV学习__背景入门</h1><p>定义图像数据结构的核心头文件：<code>opencv2/core.hpp</code></p>
+<p>包含了所有图形接口函数的头文件：<code>opencv2/highgui.hpp</code></p>
+<p>OpenCV的C++ API中，所有类和函数都在命名空间CV内定义</p>
+<p>==深入理解cv::Mat==</p>
+<p>cv::Mat包含：头部和数据块，头部涵盖了矩阵的所有相关信息（大小、通道数量、数据类型等），数据块包含图像中所有像素的值。头部有一个指向数据块的指针，即data属性</p>
+<p>只有在明确要求时，内存块才会被复制，大多数操作仅复制了头部，因此多个对象会指向同一个数据块</p>
+<p>计数引用与浅复制</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">cv::Mat <span class="title">image4</span><span class="params">(image3)</span></span>; <span class="comment">//所有图像都指向一个数据块，</span></span><br><span class="line">image1 = image3; <span class="comment">//对这几个图像中的任何一个进行转换都会影响到其他图像</span></span><br></pre></td></tr></table></figure>
+
+<p>深复制</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">image3.<span class="built_in">copyTo</span>(image2); <span class="comment">//目标图像会调用create方法</span></span><br><span class="line">cv::Mat image5 = image3.<span class="built_in">clone</span>(); <span class="comment">//都是原始图像的新副本</span></span><br></pre></td></tr></table></figure>
+
+<p>若要把一副图像复制到另一幅图像，且二者数据类型不一定相同，则要使用convertTo函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image1.<span class="built_in">convertTo</span>(image2, CV_32F, <span class="number">1</span>/<span class="number">255.0</span>, <span class="number">0.0</span>); <span class="comment">//转换成浮点型[0,1]</span></span><br></pre></td></tr></table></figure>
+
+<p>注意这个方法包含两个可选参数：缩放比例和偏移量，image1和image2的通道数必须一致才能转换</p>
+<p>==访问像素值==</p>
+<p>使用at(int y, int x)方法能够访问图像元素，其中x是列，y是行，编译时必须明确方法返回值的类型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">image.at&lt;uchar&gt;(j,i)=<span class="number">255</span>; <span class="comment">//灰度图像素访问</span></span><br><span class="line">image.at&lt;Vec3b&gt;(j,i)[channel]=value; <span class="comment">//彩色图像访问像素，Vec3b包含3个无符号字符类型(8位)的数据</span></span><br><span class="line">image.at&lt;Vec3b&gt;(j,i) = cv::<span class="built_in">Vec3b</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>);<span class="comment">//存储通道数据的次序依次为BGR</span></span><br></pre></td></tr></table></figure>
+
+<p>==指针扫描图像==</p>
+<p>减色算法减少图像中颜色的数量，原本256×256×256，处理后可以得到256/N×256/N×256/N中可能的颜色</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">colorReduce</span><span class="params">(cv::Mat image, <span class="keyword">int</span> div=<span class="number">64</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n1 = image.rows; <span class="comment">//行数</span></span><br><span class="line">    <span class="keyword">int</span> nc = image.cols*image.<span class="built_in">channels</span>(); <span class="comment">//每行的个数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n1;j++)&#123;</span><br><span class="line">        <span class="comment">//取得行j的地址</span></span><br><span class="line">        uchar* data = image.ptr&lt;uchar&gt;(j);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nc;i++)&#123;</span><br><span class="line">            data[i] = data[i]/div*div+div/<span class="number">2</span>; <span class="comment">//利用整数除法</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>利用位运算实现减色算法，位运算的效率很高</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uchar mask = <span class="number">0xFF</span>&lt;&lt;n; <span class="comment">//div=16时，mask=0xF0</span></span><br><span class="line">*data &amp;= mask; <span class="comment">//掩码</span></span><br><span class="line">*data++ += div&gt;&gt;<span class="number">1</span>; <span class="comment">//加上div/2</span></span><br></pre></td></tr></table></figure>
+
+<p>==图像重映射==</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">wave</span><span class="params">(<span class="keyword">const</span> cv::Mat &amp;image, cv::Mat &amp;result)</span></span>&#123;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">srcX</span><span class="params">(image.rows, image.cols, CV_32F)</span></span>; <span class="comment">//X方向</span></span><br><span class="line">    <span class="function">cv::Mat <span class="title">srcY</span><span class="params">(image.rows, image.cols, CV_32F)</span></span>; <span class="comment">//Y方向</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;image.rows;j++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;image.cols;i++)&#123;</span><br><span class="line">            srcX.at&lt;<span class="keyword">float</span>&gt;(j,i) = i; <span class="comment">//X方向保持不变</span></span><br><span class="line">            srcY.at&lt;<span class="keyword">float</span>&gt;(j,i) = j+<span class="number">5</span>*<span class="built_in">sin</span>(i/<span class="number">10.0</span>); <span class="comment">//Y方向沿着正弦曲线移动</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cv::<span class="built_in">remap</span>(image, result, srcX, srcY, cv::INTER_LINEAR);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>==用GrabCut算法分割图像==</p>
+<p>构建一种算法，能够识别图像中具有某种颜色的所有像素。输入一幅图像和一个颜色，返回一个二值图像，显示具有指定颜色的像素。</p>
+<p>核心函数<code>cv::GrabCut</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cv::<span class="built_in">grabCut</span>(image, result, rectangle, bgModel, fgModel, <span class="number">5</span>, cv::GC_INIT_WITH_RECT);</span><br><span class="line">cv::<span class="built_in">compare</span>(result, cv::GC_PR_FGD, result, cv::CMP_EQ);</span><br><span class="line"><span class="function">cv::Mat <span class="title">foreground</span><span class="params">(image.size(), CV_8UC3, cv::Scalar(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>))</span></span>;</span><br><span class="line">image.<span class="built_in">copyTo</span>(foreground, result); <span class="comment">//不复制背景</span></span><br></pre></td></tr></table></figure>
+
+<p>cv::GC_INIT_WITH_RECT表示将使用带边框的举行模型</p>
+<p>通过提取值为cv::GC_PR_FGD(前景)的像素，可得到包含分割信息的二值图像</p>
+<p>==HSV色彩空间==</p>
+<p>人类更喜欢用色彩、彩度、亮度等直观属性描述颜色，大多数的直觉色彩空间基于这三类属性。Hue表示主色，使用的颜色名称对应不同的色调值；饱和度表示颜色的鲜艳程度；亮度表示颜色的光亮程度</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -212,95 +255,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/05/%E9%9A%8F%E4%BE%BF%E7%8E%A9%E7%8E%A9%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Python%E7%88%AC%E8%99%AB/" class="archive-article-date">
-  	<time datetime="2023-04-05T14:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/04/05/%E9%9A%8F%E4%BE%BF%E7%8E%A9%E7%8E%A9%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Python%E7%88%AC%E8%99%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">随便玩玩系列——Python爬虫</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/05/%E9%9A%8F%E4%BE%BF%E7%8E%A9%E7%8E%A9%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Python%E7%88%AC%E8%99%AB/">随便玩玩系列——Python爬虫</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python, 爬虫, 随便玩玩</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV%E5%AD%A6%E4%B9%A0-%E8%83%8C%E6%99%AF%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习__背景入门</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/04/Tricks-For-Training/" class="archive-article-date">
-  	<time datetime="2023-04-04T12:56:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-04</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/04/Tricks-For-Training/">Tricks For Training</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Deep learning, Image Super-Resolution, Pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -325,8 +392,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
