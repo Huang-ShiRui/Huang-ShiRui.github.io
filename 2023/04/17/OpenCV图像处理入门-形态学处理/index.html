@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | 诗芮的博客</title>
+  <title>OpenCV图像处理入门-形态学处理.md | 诗芮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="诗芮的博客">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="形态学处理 继续学习图像处理相关知识，这一节是关于形态学计算的，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV图像处理入门-形态学处理.md">
+<meta property="og:url" content="http://example.com/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="诗芮的博客">
-<meta property="og:description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
+<meta property="og:description" content="形态学处理 继续学习图像处理相关知识，这一节是关于形态学计算的，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/07/ppTGRUO.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/07/ppTgRCd.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/08/pp7UIeA.md.png">
+<meta property="article:published_time" content="2023-04-17T13:52:05.000Z">
+<meta property="article:modified_time" content="2023-04-17T13:56:31.602Z">
 <meta property="article:author" content="VV">
-<meta property="article:tag" content="深度学习,编程,算法">
+<meta property="article:tag" content="OpenCV, C++, Image Process">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/04/07/ppTGRUO.png">
   
     <link rel="alternative" href="/atom.xml" title="诗芮的博客" type="application/atom+xml">
   
@@ -171,74 +177,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-OpenCV图像处理入门-形态学处理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/" class="archive-article-date">
-  	<time datetime="2023-04-17T13:54:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/">OpenCV图像处理入门-图像滤波.md</a>
+    <h1 class="article-title" itemprop="name">
+      OpenCV图像处理入门-形态学处理.md
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenCV, C++, Image Process</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/" class="archive-article-date">
+        
+        <a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/" class="archive-article-date">
   	<time datetime="2023-04-17T13:52:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/">OpenCV图像处理入门-形态学处理.md</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>形态学处理</strong></p>
+<p>继续学习图像处理相关知识，这一节是关于形态学计算的，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="OpenCV学习-形态学运算"><a href="#OpenCV学习-形态学运算" class="headerlink" title="OpenCV学习__形态学运算"></a>OpenCV学习__形态学运算</h1><p>基本要素：结构元素、锚点</p>
+<p>基本操作：腐蚀和膨胀</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>通过阈值化创建二值图像，约定高像素值(255)代表前景，低像素值(0)代表背景</p>
+<p>方法：借助<code>cv::threshold</code>函数，再对结果进行反向处理</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat image = cv::<span class="built_in">imread</span>(<span class="string">&quot;test1.jpg&quot;</span>, <span class="number">0</span>);</span><br><span class="line">cv::Mat thresholded;</span><br><span class="line">cv::<span class="built_in">threshold</span>(image, thresholded, <span class="number">70</span>, <span class="number">255</span>, cv::THRESH_BINARY);</span><br><span class="line">cv::<span class="built_in">imwrite</span>(<span class="string">&quot;test1_b.jpg&quot;</span>, ~thresholded);</span><br></pre></td></tr></table></figure>
+
+<p>处理前后效果：</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/ppTGRUO"><img src="https://s1.ax1x.com/2023/04/07/ppTGRUO.png" alt="ppTGRUO.png" style="zoom: 80%;" /></a></p>
+<p>处理方式非常naive，肉眼可见效果也不是很好</p>
+<h3 id="腐蚀和膨胀及其原理"><a href="#腐蚀和膨胀及其原理" class="headerlink" title="腐蚀和膨胀及其原理"></a>腐蚀和膨胀及其原理</h3><p><strong>腐蚀</strong>就是把当前像素替换成所定义像素集合中的最小像素值；</p>
+<p><strong>膨胀</strong>是腐蚀的反运算，把当前像素值替换成像素集合中的最大像素值；</p>
+<p>输入的二值图像只包含黑色和白色像素，因此每个像素只会被替换成白色或者黑色的像素。</p>
+<p>腐蚀时，如果结构元素放到某个像素位置时遇到了背景（交集有一个像素为黑色），这个像素就变成了背景</p>
+<p>膨胀时，结构元素放到某个像素位置时遇到了前景物体，这个像素就变成了前景。</p>
+<p><strong>图像腐蚀后物体尺寸会缩小，膨胀后物体尺寸会扩大</strong>；OpenCV默认使用3*3大小的正方形结构元素。</p>
+<p>示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat image = cv::<span class="built_in">imread</span>(<span class="string">&quot;test1_b.jpg&quot;</span>);</span><br><span class="line">cv::Mat erode; <span class="comment">//腐蚀图像，默认用3*3结构元素</span></span><br><span class="line">cv::<span class="built_in">erode</span>(image, erode, cv::<span class="built_in">Mat</span>());</span><br><span class="line">cv::Mat dilated; <span class="comment">//膨胀图像</span></span><br><span class="line">cv::<span class="built_in">dilate</span>(image, dilated, cv::<span class="built_in">Mat</span>());</span><br><span class="line">cv::<span class="built_in">imwrite</span>(<span class="string">&quot;test1_e.jpg&quot;</span>, erode);</span><br><span class="line">cv::<span class="built_in">imwrite</span>(<span class="string">&quot;test1_d.jpg&quot;</span>, dilated);</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/ppTgRCd"><img src="https://s1.ax1x.com/2023/04/07/ppTgRCd.md.png" alt="ppTgRCd.md.png"></a></p>
+<p><strong>开运算和闭运算</strong></p>
+<p>开：先腐蚀后膨胀图像</p>
+<p>闭：先膨胀后腐蚀图像</p>
+<ul>
+<li><p><code>cv::morphologyEx</code></p>
+<ul>
+<li><p>形态学提取图像边缘 <code>CV::MORPH_GRADIENT</code></p>
+<p>计算方法：通过计算膨胀后的图像与腐蚀后的图像之间的差异得到边缘</p>
+<p>解释：边缘相当于黑暗和明亮像素之间的快速过渡（悬崖），腐蚀后悬崖缩小山谷扩大，膨胀后悬崖扩大山谷缩小。膨胀与腐蚀操作后的图像差别主要在边缘地带，相减后会突出边缘。</p>
+<p>结构元素越大，检测的边缘越宽，这种边缘检测运算被称为Beucher梯度</p>
+</li>
+<li><p>顶帽变换，从图像提取局部的小型前景物体， <code>CV::MORPH_BLACKHAT</code></p>
+<p>基于图像对比，原始图像和经过开启运算的图像的比对结果即局部的尖锐部分（待提取的前景目标）</p>
+<p>黑帽算法，对图像做闭合运算，然后从得到的结果减去原始图像，用7*7的结构元素</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">cv::Mat <span class="title">element7</span><span class="params">(<span class="number">7</span>, <span class="number">7</span>, CV_8U, cv::Scalar(<span class="number">1</span>))</span></span>;</span><br><span class="line">cv::<span class="built_in">morphologyEx</span>(image, result, cv::MORPH_BLACKHAT, element7);</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp7UIeA"><img src="https://s1.ax1x.com/2023/04/08/pp7UIeA.md.png" alt="pp7UIeA.md.png"></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="分水岭算法分割图像"><a href="#分水岭算法分割图像" class="headerlink" title="分水岭算法分割图像"></a>分水岭算法分割图像</h3><p>用于快速将图像分割成多个同质区域，通常调用<code>cv::watershed</code>函数，输入一个标记图像（32位有符号整数，每个非零像素代表一个标签）。对于图像中部分像素做标记，表明它们的所属区域已知。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WatershedSegementor</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    cv::Mat markers;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setMarkers</span><span class="params">(<span class="keyword">const</span> cv::Mat &amp;markerImage)</span></span>&#123;</span><br><span class="line">        markerImage.<span class="built_in">convertTo</span>(markers, CV_32S); <span class="comment">//转换成整型图像</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">cv::Mat <span class="title">process</span><span class="params">(<span class="keyword">const</span> cv::Mat &amp;image)</span></span>&#123;</span><br><span class="line">        cv::<span class="built_in">watershed</span>(image, markers); <span class="comment">//调用分水岭算法</span></span><br><span class="line">        <span class="keyword">return</span> markers;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">cv::Mat gray;</span><br><span class="line">cv::<span class="built_in">cvtColor</span>(image, gray, cv::COLOR_BGR2GRAY);</span><br><span class="line">cv::Mat thresholded;</span><br><span class="line">cv::<span class="built_in">threshold</span>(gray, thresholded, <span class="number">0</span>, <span class="number">255</span>, cv::THRESH_BINARY_INV+cv::THRESH_OTSU); <span class="comment">//使用Otsu的二值化，找到前景的近似估计</span></span><br><span class="line">cv::Mat opening; <span class="comment">//消除噪声</span></span><br><span class="line">cv::Mat kernel = cv::<span class="built_in">getStructuringElement</span>(cv::MORPH_RECT, cv::<span class="built_in">Size</span>(<span class="number">3</span>,<span class="number">3</span>));</span><br><span class="line">cv::<span class="built_in">morphologyEx</span>(thresholded, opening, cv::MORPH_OPEN, kernel, cv::<span class="built_in">Point</span>(<span class="number">-1</span>, <span class="number">-1</span>), <span class="number">2</span>);</span><br><span class="line">cv::Mat bg; <span class="comment">//背景</span></span><br><span class="line">cv::<span class="built_in">dilate</span>(opening, bg, kernel, cv::<span class="built_in">Point</span>(<span class="number">-1</span>, <span class="number">-1</span>), <span class="number">3</span>);</span><br><span class="line">cv::Mat fg, dist;</span><br><span class="line">cv::<span class="built_in">distanceTransform</span>(opening, dist, cv::DIST_L2, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">double</span> maxVal;</span><br><span class="line">cv::<span class="built_in">minMaxLoc</span>(dist, <span class="number">0</span>, &amp;maxVal, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">cv::<span class="built_in">threshold</span>(dist, fg, <span class="number">0.7</span>*maxVal, <span class="number">255</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// //合并前景和背景</span></span><br><span class="line"><span class="comment">// cv::Mat markers(thresholded.size(), CV_8U, cv::Scalar(0));</span></span><br><span class="line"><span class="comment">// markers = bg - fg; //白色区域属于前景，灰色区域属于背景，黑色区域标签未知</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="MSER算法提取特征区域"><a href="#MSER算法提取特征区域" class="headerlink" title="MSER算法提取特征区域"></a>MSER算法提取特征区域</h3><p>基础类：<code>cv::MESR</code>，继承自<code>cv::Feature2D的抽象接口</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat image = cv::<span class="built_in">imread</span>(<span class="string">&quot;test1.jpg&quot;</span>, <span class="number">1</span>);</span><br><span class="line">cv::Ptr&lt;cv::MSER&gt; ptrMSER = cv::MSER::<span class="built_in">create</span>(<span class="number">5</span>, <span class="number">200</span>, <span class="number">2000</span>); </span><br><span class="line">std::vector&lt;std::vector&lt;cv::Point&gt;&gt; points; <span class="comment">//点集合</span></span><br><span class="line">std::vector&lt;cv::Rect&gt; rects; <span class="comment">//矩阵集合</span></span><br><span class="line">ptrMSER-&gt;<span class="built_in">detectRegions</span>(image, points, rects);</span><br><span class="line"><span class="comment">//创建背景图像</span></span><br><span class="line"><span class="function">cv::Mat <span class="title">output</span><span class="params">(image.size(), CV_8UC3)</span></span>;</span><br><span class="line">output = cv::<span class="built_in">Scalar</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);</span><br><span class="line">cv::RNG rng;</span><br><span class="line"><span class="comment">//针对每个检测到的特征区域，在彩色区域显示MSER，先显示较大的MSER</span></span><br><span class="line"><span class="keyword">for</span>(std::vector&lt;std::vector&lt;cv::Point&gt;&gt;::reverse_iterator it = points.<span class="built_in">rbegin</span>();it &lt; points.<span class="built_in">rend</span>();++it)&#123;</span><br><span class="line">    <span class="function">cv::Vec3b <span class="title">c</span><span class="params">(rng.uniform(<span class="number">0</span>, <span class="number">254</span>), rng.uniform(<span class="number">0</span>, <span class="number">254</span>), rng.uniform(<span class="number">0</span>, <span class="number">254</span>))</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(std::vector&lt;cv::Point&gt;::iterator itP = it-&gt;<span class="built_in">begin</span>();itP&lt;=it-&gt;<span class="built_in">end</span>();++itP)&#123;</span><br><span class="line">        <span class="keyword">if</span>(output.at&lt;cv::Vec3b&gt;(*itP)[<span class="number">0</span>]==<span class="number">255</span>)&#123;</span><br><span class="line">            output.at&lt;cv::Vec3b&gt;(*itP) = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -250,133 +266,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2023-04-06T12:12:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OpenCV图像处理入门-图像滤波.md
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OpenCV图像处理入门-背景知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/">OpenCV图像处理入门-背景知识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenCV, C++, Image Process</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV%E5%AD%A6%E4%B9%A0-%E5%BD%A2%E6%80%81%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习__形态学运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.0.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%85%90%E8%9A%80%E5%92%8C%E8%86%A8%E8%83%80%E5%8F%8A%E5%85%B6%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.2.</span> <span class="toc-text">腐蚀和膨胀及其原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%B0%B4%E5%B2%AD%E7%AE%97%E6%B3%95%E5%88%86%E5%89%B2%E5%9B%BE%E5%83%8F"><span class="toc-number">1.0.3.</span> <span class="toc-text">分水岭算法分割图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MSER%E7%AE%97%E6%B3%95%E6%8F%90%E5%8F%96%E7%89%B9%E5%BE%81%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.0.4.</span> <span class="toc-text">MSER算法提取特征区域</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/05/%E9%9A%8F%E4%BE%BF%E7%8E%A9%E7%8E%A9%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Python%E7%88%AC%E8%99%AB/" class="archive-article-date">
-  	<time datetime="2023-04-05T14:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/05/%E9%9A%8F%E4%BE%BF%E7%8E%A9%E7%8E%A9%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Python%E7%88%AC%E8%99%AB/">随便玩玩系列——Python爬虫</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python, 爬虫, 随便玩玩</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/04/Tricks-For-Training/" class="archive-article-date">
-  	<time datetime="2023-04-04T12:56:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/04/Tricks-For-Training/">Tricks For Training</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Deep learning, Image Super-Resolution, Pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -401,8 +412,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | 诗芮的博客</title>
+  <title>OpenCV图像处理入门-图像滤波.md | 诗芮的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="诗芮的博客">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="图像滤波 这一节将介绍一些常见的传统图像处理滤波器和滤波核，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV图像处理入门-图像滤波.md">
+<meta property="og:url" content="http://example.com/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/index.html">
 <meta property="og:site_name" content="诗芮的博客">
-<meta property="og:description" content="西安电子科技大学研究生，研究方向基于深度学习的图像复原和增强。">
+<meta property="og:description" content="图像滤波 这一节将介绍一些常见的传统图像处理滤波器和滤波核，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/17/p9PmUg0.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/17/p9PmIVe.md.jpg">
+<meta property="article:published_time" content="2023-04-17T13:54:05.000Z">
+<meta property="article:modified_time" content="2023-04-17T13:55:47.010Z">
 <meta property="article:author" content="VV">
-<meta property="article:tag" content="深度学习,编程,算法">
+<meta property="article:tag" content="OpenCV, C++, Image Process">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/04/17/p9PmUg0.md.jpg">
   
     <link rel="alternative" href="/atom.xml" title="诗芮的博客" type="application/atom+xml">
   
@@ -171,36 +176,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-OpenCV图像处理入门-图像滤波" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      OpenCV图像处理入门-图像滤波.md
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/" class="archive-article-date">
+
+        
+        <a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/" class="archive-article-date">
   	<time datetime="2023-04-17T13:54:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/">OpenCV图像处理入门-图像滤波.md</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>图像滤波</strong></p>
+<p>这一节将介绍一些常见的传统图像处理滤波器和滤波核，参考书籍《OpenCV计算机视觉编程攻略(第3版)》。</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="OpenCV学习-图像滤波"><a href="#OpenCV学习-图像滤波" class="headerlink" title="OpenCV学习__图像滤波"></a>OpenCV学习__图像滤波</h1><p>图像是二维的，包括两种频率，垂直频率和水平频率。在频域分析框架下，滤波器可以放大图像的某些频段，同时滤掉其他频段。</p>
+<h3 id="低通滤波器"><a href="#低通滤波器" class="headerlink" title="低通滤波器"></a>低通滤波器</h3><p>功能：减少图像变化的幅度，使其平滑。包括均值滤波<code>cv::blur</code>、高斯滤波<code>cv::GaussianBlur</code>（较近的像素比较远的像素具有更大的权重）等</p>
+<h4 id="缩减像素采样"><a href="#缩减像素采样" class="headerlink" title="缩减像素采样"></a>缩减像素采样</h4><p>降低图像精度的过程；反之<strong>提升像素采样</strong>：提升图像精度的过程；</p>
+<p>例1：将测试图像缩小到1/4，同时每个像素按原大小的四倍进行展示</p>
+<p>PS：OpenCV提供了多种图像缩减的方法，这里采用for循环实现</p>
+<p>其他的函数还包括<code>cv::imresize</code>和<code>cv::pyrDown</code>等</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat image = cv::<span class="built_in">imread</span>(<span class="string">&quot;test1.jpg&quot;</span>);</span><br><span class="line"><span class="function">cv::Mat <span class="title">reduced</span><span class="params">(image.rows/<span class="number">4</span>, image.cols/<span class="number">4</span>, CV_8UC3)</span></span>; <span class="comment">//4个像素只保留1个</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;reduced.rows;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;reduced.cols;j++)&#123;</span><br><span class="line">        reduced.at&lt;cv::Vec3b&gt;(i,j) = blurred.at&lt;cv::Vec3b&gt;(i*<span class="number">4</span>, j*<span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//每个像素按照原大小的4倍显示</span></span><br><span class="line">cv::<span class="built_in">resize</span>(reduced, reduced, cv::<span class="built_in">Size</span>(), <span class="number">4</span>, <span class="number">4</span>, cv::INTER_NEAREST);</span><br><span class="line">cv::<span class="built_in">imshow</span>(<span class="string">&quot;reduced&quot;</span>, reduced);</span><br></pre></td></tr></table></figure>
+
+<p>操作结果：</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/p9PmUg0"><img src="https://s1.ax1x.com/2023/04/17/p9PmUg0.md.jpg" alt="p9PmUg0.md.jpg" style="zoom:50%;" /></a></p>
+<p>出现了<strong>空间假频现象</strong>，即由于图像太小(像素点太少)，精细的纹理和尖锐边缘(高频信息)展现效果不佳的现象</p>
+<p><strong>解决方法</strong>：在处理前去除图像的高频分量，可以采用低通滤波器</p>
+<p><code>cv::GaussianBlur(image, blurred, cv::Size(11,11),2.0); </code></p>
+<p>操作结果：</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/p9PmIVe"><img src="https://s1.ax1x.com/2023/04/17/p9PmIVe.md.jpg" alt="p9PmIVe.md.jpg" style="zoom:50%;" /></a></p>
+<p>对比上图，尽管丢失了精细的细节，主观视觉质量变好了</p>
+<p><strong>原理分析</strong>：应用了Nyquist-Shannon采样定理，将图像大小缩小一半，可见的频率带宽也减小一半。</p>
+<h4 id="中通滤波器"><a href="#中通滤波器" class="headerlink" title="中通滤波器"></a>中通滤波器</h4><p>调用函数<code>cv::medianBlur</code></p>
+<p>中值滤波是非线性的，不能用核心矩阵表示，也不能进行卷积计算。它将当前像素和其邻域组成一个集合，计算出集合的中间值（中位数），以此作为当前像素点的值。中值滤波器对于椒盐噪声非常有效，因为噪声通常是像素邻域中黑色或者白色的像素，该像素无法作为中间值，一定会被邻域其他值替换掉。相反，均值滤波器会极大程度地受到椒盐噪声的影响。</p>
+<h3 id="高通-定向滤波器"><a href="#高通-定向滤波器" class="headerlink" title="高通/定向滤波器"></a>高通/定向滤波器</h3><h4 id="Sobel算子"><a href="#Sobel算子" class="headerlink" title="Sobel算子"></a>Sobel算子</h4><p>梯度算子采用Sobel滤波器，被视为一种定向滤波器，因为它只对垂直/水平方向的图像频率起作用</p>
+<p>Sobel算子的内核既有整数又有负数，计算结果通常用16位的有符号整数图像。16位图像需要进行值映射，方便显示。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat sobelX, sobelY;</span><br><span class="line">cv::<span class="built_in">Sobel</span>(image, sobelX, CV_16S, <span class="number">1</span>, <span class="number">0</span>); <span class="comment">//水平方向</span></span><br><span class="line">cv::<span class="built_in">Sobel</span>(image, sobelY, CV_16S, <span class="number">0</span>, <span class="number">1</span>); <span class="comment">//垂直方向</span></span><br><span class="line">cv::Mat sobel;</span><br><span class="line">sobel = <span class="built_in">abs</span>(sobelX) + <span class="built_in">abs</span>(sobelY);</span><br><span class="line"><span class="keyword">double</span> sobelmin, sobelmax;</span><br><span class="line">cv::<span class="built_in">minMaxIdx</span>(sobel, &amp;sobelmin, &amp;sobelmax);</span><br><span class="line">cv::Mat sobelImage;</span><br><span class="line">sobel.<span class="built_in">convertTo</span>(sobelImage, CV_8UC3, <span class="number">-255.</span>/sobelmax, <span class="number">255</span>);</span><br><span class="line"><span class="comment">//图像阈值化，得到轮廓的二值分布图</span></span><br><span class="line">cv::Mat thresholded;</span><br><span class="line">cv::<span class="built_in">threshold</span>(sobelImage, thresholded, <span class="number">180</span>, <span class="number">255</span>, cv::THRESH_BINARY);</span><br></pre></td></tr></table></figure>
+
+<p>此外还有其他算子，如：Prewitt算子，Roberts算子，Scharr算子（更精确地计算梯度方向）</p>
+<p>这些算子都可以计算图像的一阶导数，像素变化大的地方结果较大，像素变化小的地方结果较小，因此计算图像导数的滤波器被称为高通滤波器</p>
+<h4 id="Laplacian算子"><a href="#Laplacian算子" class="headerlink" title="Laplacian算子"></a>Laplacian算子</h4><p>基于图像导数运算的高通线性滤波器，通过计算二阶导数度量图像函数的曲率。与Sobel算子相比，它可以采用更大的内核计算，且对于图像噪声更敏感。这些更大的内核用高斯函数的二阶导数计算，因此也被称为LoG</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cv::Mat laplace;</span><br><span class="line"><span class="keyword">int</span> aperture = <span class="number">7</span>; <span class="comment">//设置内核大小</span></span><br><span class="line">cv::<span class="built_in">Laplacian</span>(image, laplace, CV_32F, aperture); <span class="comment">//计算拉普拉斯算子</span></span><br><span class="line"><span class="keyword">double</span> lapmin, lapmax;</span><br><span class="line">cv::<span class="built_in">minMaxIdx</span>(laplace, &amp;lapmin, &amp;lapmax);</span><br><span class="line"><span class="keyword">double</span> scale = <span class="number">127</span> / std::<span class="built_in">max</span>(-lapmin, lapmax); <span class="comment">//缩放拉普拉斯算子到127</span></span><br><span class="line">cv::Mat gray;</span><br><span class="line">laplace.<span class="built_in">convertTo</span>(gray, CV_8U, scale, <span class="number">128</span>); <span class="comment">//将结果存到8位灰度图像中，灰度级128</span></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -212,171 +247,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-04-17T13:52:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OpenCV图像处理入门-形态学处理.md</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/17/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86/">OpenCV图像处理入门-形态学处理.md</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenCV, C++, Image Process</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习__图像滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="toc-number">1.0.1.</span> <span class="toc-text">低通滤波器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%A9%E5%87%8F%E5%83%8F%E7%B4%A0%E9%87%87%E6%A0%B7"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">缩减像素采样</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">中通滤波器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9A-%E5%AE%9A%E5%90%91%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="toc-number">1.0.2.</span> <span class="toc-text">高通&#x2F;定向滤波器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sobel%E7%AE%97%E5%AD%90"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">Sobel算子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Laplacian%E7%AE%97%E5%AD%90"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">Laplacian算子</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2023-04-06T12:12:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-06</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/06/OpenCV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%85%A5%E9%97%A8-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/">OpenCV图像处理入门-背景知识</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenCV, C++, Image Process</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/05/%E9%9A%8F%E4%BE%BF%E7%8E%A9%E7%8E%A9%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Python%E7%88%AC%E8%99%AB/" class="archive-article-date">
-  	<time datetime="2023-04-05T14:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/05/%E9%9A%8F%E4%BE%BF%E7%8E%A9%E7%8E%A9%E7%B3%BB%E5%88%97%E2%80%94%E2%80%94Python%E7%88%AC%E8%99%AB/">随便玩玩系列——Python爬虫</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python, 爬虫, 随便玩玩</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/04/Tricks-For-Training/" class="archive-article-date">
-  	<time datetime="2023-04-04T12:56:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/04/Tricks-For-Training/">Tricks For Training</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Deep learning, Image Super-Resolution, Pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -401,8 +384,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
